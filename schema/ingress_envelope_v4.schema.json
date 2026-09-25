@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sovereign:crm:ingress:4",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "const": "crm.ingress.v4"
+    },
+    "kind": {
+      "enum": [
+        "command",
+        "dirty_hint"
+      ]
+    },
+    "delivery_id": {
+      "type": "string",
+      "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+    },
+    "sender_key_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+    },
+    "ledger_id": {
+      "type": "string",
+      "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+    },
+    "issued_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "expires_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "mac": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "protocol",
+    "kind",
+    "delivery_id",
+    "sender_key_id",
+    "audience",
+    "tenant_id",
+    "ledger_id",
+    "issued_at",
+    "expires_at",
+    "nonce",
+    "payload",
+    "payload_digest",
+    "mac"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "command"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "ingest_command_v4.schema.json"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "dirty_hint"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "properties": {
+              "workbook_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "sheet_id": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "generation_id": {
+                "type": "string",
+                "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+              },
+              "start_row": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10000000
+              },
+              "end_row_exclusive": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10000000
+              },
+              "start_column": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10000000
+              },
+              "end_column_exclusive": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10000000
+              },
+              "change_class": {
+                "enum": [
+                  "EDIT",
+                  "STRUCTURE",
+                  "WHOLE_SHEET"
+                ]
+              },
+              "captured_at": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+              },
+              "trigger_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "workbook_id",
+              "sheet_id",
+              "generation_id",
+              "start_row",
+              "end_row_exclusive",
+              "start_column",
+              "end_column_exclusive",
+              "change_class",
+              "captured_at",
+              "trigger_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  ]
+}

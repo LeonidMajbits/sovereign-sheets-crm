@@ -1,0 +1,88 @@
+{
+  "runtime": "v22.16.0",
+  "profile": "Node interface mocks; no deployed Google runtime",
+  "tests": [
+    {
+      "name": "valid signed command stages exact original envelope",
+      "status": "PASS"
+    },
+    {
+      "name": "receipt authenticates final Drive ID",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate keys reject before staging",
+      "status": "PASS"
+    },
+    {
+      "name": "tampered payload rejects",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong tenant rejects",
+      "status": "PASS"
+    },
+    {
+      "name": "expired envelope rejects",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown command properties reject",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong schema version rejects",
+      "status": "PASS"
+    },
+    {
+      "name": "formula-like signed literal does not reach Drive",
+      "status": "PASS"
+    },
+    {
+      "name": "lost creation response is UNKNOWN",
+      "status": "PASS"
+    },
+    {
+      "name": "shared staging admission limits bursts",
+      "status": "PASS"
+    },
+    {
+      "name": "edit event never reads raw values",
+      "status": "PASS"
+    },
+    {
+      "name": "structural event emits only invalidation",
+      "status": "PASS"
+    },
+    {
+      "name": "trigger provisioning is idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "health exposes no keys or tenant identity",
+      "status": "PASS"
+    },
+    {
+      "name": "JCS uses UTF16 ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid surrogate rejects",
+      "status": "PASS"
+    },
+    {
+      "name": "float and unsafe integers reject",
+      "status": "PASS"
+    },
+    {
+      "name": "prototype-shaped key remains ordinary data",
+      "status": "PASS"
+    },
+    {
+      "name": "oversized body rejected",
+      "status": "PASS"
+    }
+  ],
+  "passed": 20,
+  "failed": 0
+}

@@ -1,0 +1,3 @@
+# Optional maintained phone parser. Not installed/tested in this container.
+# Pin the selected version in the deployment lock after validation on the host.
+phonenumbers>=8.13,<10

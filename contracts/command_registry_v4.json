@@ -1,0 +1,119 @@
+{
+  "version": "1",
+  "commands": [
+    {
+      "command_type": "entity.create",
+      "capability": "entity.create",
+      "base_required": false,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "entity.patch",
+      "capability": "entity.edit",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "entity.transition",
+      "capability": "entity.transition",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "entity.tombstone",
+      "capability": "entity.delete",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "campaign.membership.set",
+      "capability": "campaign.edit",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "patron.channel.set",
+      "capability": "patron.edit",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "patron.primary_channel.set",
+      "capability": "patron.edit",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "entity.alias.set",
+      "capability": "entity.edit",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "artifact.register",
+      "capability": "artifact.register",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "interaction.append",
+      "capability": "interaction.append",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "interaction.supersede",
+      "capability": "interaction.correct",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "dispatch.chunk.append",
+      "capability": "dispatch.result",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "claim.acquire",
+      "capability": "claim.acquire",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "claim.release",
+      "capability": "claim.release",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "claim.recover",
+      "capability": "claim.recover",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "observation.resolve",
+      "capability": "resolve_observation",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "project.plan.select",
+      "capability": "project.accept",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "commercial.terms.set",
+      "capability": "commercial.edit",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    },
+    {
+      "command_type": "entity.merge",
+      "capability": "entity.merge",
+      "base_required": true,
+      "further_contract": "See main specification: dependency matrix, state transitions, bounded fan-out; capability alone does not bypass broker invariants."
+    }
+  ]
+}

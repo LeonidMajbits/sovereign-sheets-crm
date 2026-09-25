@@ -1,0 +1,26 @@
+{
+  "release": "0.5.0rc1",
+  "python_tests": {
+    "tests": "103",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "21.041"
+  },
+  "node_checks": {
+    "passed": 20,
+    "failed": 0,
+    "runtime": "v22.16.0",
+    "profile": "Node interface mocks; no deployed Google runtime"
+  },
+  "load_fixture_properties": {
+    "logical_agents": "500",
+    "worker_threads": "32",
+    "fake_provider_batches": "11",
+    "clock": "simulated"
+  },
+  "runtime_profile": "Python 3.13.5 / SQLite 3.46.1 compatibility fixtures; production >=3.51.3 gate intentionally not met",
+  "cloud_profile": "simulated provider boundaries, not live Google",
+  "target_darwin": "NOT_RUN",
+  "original_109_case_matrix": "preserved unchanged; no blanket promotion to passed"
+}

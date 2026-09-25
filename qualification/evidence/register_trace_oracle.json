@@ -1,0 +1,11 @@
+{
+  "distinct_operations": 50000,
+  "entity_creates": 10000,
+  "final_registers_digest": "c83f7b199b186eee7f462e3ff23e69ae7a6def1f8d089adfc05879290c64db29",
+  "lamport_candidates": 40000,
+  "registers": 10000,
+  "scope": "Independent reconstruction of every recorded rank, selected outcome and receive-clock recurrence; not an independent cloud or disk durability proof.",
+  "source_trace_sha256": "9a65edd974a4b4792bab6423c4622aa25a71cb3268886104f740edc7a7612aa2",
+  "status": "PASS",
+  "tenants": 10
+}

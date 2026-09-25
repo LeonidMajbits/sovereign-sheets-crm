@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sovereign:crm:ingress-receipt:4",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "const": "crm.ingress.v4"
+    },
+    "ok": {
+      "type": "boolean"
+    },
+    "state": {
+      "enum": [
+        "RECEIVED",
+        "REJECTED",
+        "RETRYABLE_NOT_RECEIVED",
+        "UNKNOWN"
+      ]
+    },
+    "delivery_id": {
+      "type": "string",
+      "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+    },
+    "operation_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "file_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "received_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 80
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "receipt_mac": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "protocol",
+    "ok",
+    "state",
+    "delivery_id",
+    "operation_id",
+    "file_id",
+    "payload_digest",
+    "received_at",
+    "error_code",
+    "receipt_mac"
+  ],
+  "additionalProperties": false
+}

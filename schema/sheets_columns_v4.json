@@ -1,0 +1,1008 @@
+{
+  "schema_version": 4,
+  "layout_version": "crm.sheets.v4",
+  "tab_count": 5,
+  "visible_tabs": [
+    "Directory",
+    "Active Pipeline",
+    "Completed Archives"
+  ],
+  "sheet_ids": "Provisioned immutable numeric IDs, pinned in trusted configuration. Do not derive from tab order.",
+  "all_columns_plain_text": true,
+  "header_row": 1,
+  "first_data_row": 2,
+  "directory_grain": "one person, organization, or communication thread; stable slots including closed records and tombstones",
+  "pipeline_grain": "one nonterminal campaign/project/stage/ticket/opportunity/contract/dispatch",
+  "archives_grain": "one latest terminal campaign/project/stage/ticket/opportunity/contract/dispatch; current terminal snapshot, not audit history",
+  "publisher_forbidden_columns": {
+    "Directory": [
+      "human_status",
+      "human_note"
+    ]
+  },
+  "tabs": {
+    "Directory": [
+      {
+        "index_1based": 1,
+        "header": "entity_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 2,
+        "header": "entity_kind",
+        "semantic_type": "ENTITY_KIND",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 3,
+        "header": "display_name",
+        "semantic_type": "TEXT_1024",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 4,
+        "header": "status",
+        "semantic_type": "KIND_STATUS",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 5,
+        "header": "organization_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 6,
+        "header": "organization_name",
+        "semantic_type": "TEXT_1024?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 7,
+        "header": "primary_campaign_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 8,
+        "header": "contact_channel",
+        "semantic_type": "TEXT_1024?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 9,
+        "header": "patron_type",
+        "semantic_type": "PATRON_TYPE?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 10,
+        "header": "funding_band",
+        "semantic_type": "TEXT_128?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 11,
+        "header": "funding_currency",
+        "semantic_type": "ISO4217?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 12,
+        "header": "note",
+        "semantic_type": "TEXT_2048?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 13,
+        "header": "next_action",
+        "semantic_type": "TEXT_1024?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 14,
+        "header": "last_touchpoint",
+        "semantic_type": "UTC_MS?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 15,
+        "header": "active_cipher_motif",
+        "semantic_type": "TEXT_1024?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 16,
+        "header": "target_app",
+        "semantic_type": "TEXT_80?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 17,
+        "header": "connector_account_id",
+        "semantic_type": "TEXT_256?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 18,
+        "header": "external_thread_id",
+        "semantic_type": "TEXT_512?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 19,
+        "header": "updated_at",
+        "semantic_type": "UTC_MS",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 20,
+        "header": "entity_rev",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 21,
+        "header": "projection_seq",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 22,
+        "header": "ledger_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 23,
+        "header": "tenant_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 24,
+        "header": "authority_epoch",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 25,
+        "header": "generation_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 26,
+        "header": "deleted_at",
+        "semantic_type": "UTC_MS?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 27,
+        "header": "record_digest",
+        "semantic_type": "SHA256",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 28,
+        "header": "human_status",
+        "semantic_type": "PROPOSED_KIND_STATUS?",
+        "sheets_storage": "stringValue",
+        "owner": "human_proposer"
+      },
+      {
+        "index_1based": 29,
+        "header": "human_note",
+        "semantic_type": "PROPOSED_TEXT_2048?",
+        "sheets_storage": "stringValue",
+        "owner": "human_proposer"
+      },
+      {
+        "index_1based": 30,
+        "header": "human_ack",
+        "semantic_type": "JCS_RECEIPT?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 31,
+        "header": "sync_state",
+        "semantic_type": "SYNC_STATE",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      }
+    ],
+    "Active Pipeline": [
+      {
+        "index_1based": 1,
+        "header": "entity_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 2,
+        "header": "entity_kind",
+        "semantic_type": "ENTITY_KIND",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 3,
+        "header": "display_name",
+        "semantic_type": "TEXT_1024",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 4,
+        "header": "status",
+        "semantic_type": "KIND_STATUS",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 5,
+        "header": "campaign_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 6,
+        "header": "project_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 7,
+        "header": "parent_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 8,
+        "header": "owner_actor_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 9,
+        "header": "next_action",
+        "semantic_type": "TEXT_1024?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 10,
+        "header": "due_at",
+        "semantic_type": "UTC_MS?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 11,
+        "header": "stage_current",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 12,
+        "header": "stage_total",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 13,
+        "header": "attempt_no",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 14,
+        "header": "target_app",
+        "semantic_type": "TEXT_80?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 15,
+        "header": "thread_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 16,
+        "header": "chunk_index",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 17,
+        "header": "latency_sec",
+        "semantic_type": "FINITE_DECIMAL?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 18,
+        "header": "error_code",
+        "semantic_type": "TEXT_80?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 19,
+        "header": "lead_model",
+        "semantic_type": "TEXT_128?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 20,
+        "header": "prompt_hash",
+        "semantic_type": "SHA256?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 21,
+        "header": "amount_minor",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 22,
+        "header": "currency",
+        "semantic_type": "ISO4217?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 23,
+        "header": "primary_patron_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 24,
+        "header": "artifact_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 25,
+        "header": "sha256_receipt",
+        "semantic_type": "SHA256?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 26,
+        "header": "dropzone_drive_id",
+        "semantic_type": "DRIVE_ID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 27,
+        "header": "claim_generation",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 28,
+        "header": "claim_state",
+        "semantic_type": "CLAIM_STATE?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 29,
+        "header": "updated_at",
+        "semantic_type": "UTC_MS",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 30,
+        "header": "entity_rev",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 31,
+        "header": "projection_seq",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 32,
+        "header": "ledger_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 33,
+        "header": "tenant_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 34,
+        "header": "authority_epoch",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 35,
+        "header": "generation_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 36,
+        "header": "record_digest",
+        "semantic_type": "SHA256",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 37,
+        "header": "sync_state",
+        "semantic_type": "SYNC_STATE",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      }
+    ],
+    "Completed Archives": [
+      {
+        "index_1based": 1,
+        "header": "entity_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 2,
+        "header": "entity_kind",
+        "semantic_type": "ENTITY_KIND",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 3,
+        "header": "display_name",
+        "semantic_type": "TEXT_1024",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 4,
+        "header": "status",
+        "semantic_type": "KIND_STATUS",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 5,
+        "header": "campaign_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 6,
+        "header": "project_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 7,
+        "header": "parent_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 8,
+        "header": "owner_actor_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 9,
+        "header": "next_action",
+        "semantic_type": "TEXT_1024?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 10,
+        "header": "due_at",
+        "semantic_type": "UTC_MS?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 11,
+        "header": "stage_current",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 12,
+        "header": "stage_total",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 13,
+        "header": "attempt_no",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 14,
+        "header": "target_app",
+        "semantic_type": "TEXT_80?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 15,
+        "header": "thread_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 16,
+        "header": "chunk_index",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 17,
+        "header": "latency_sec",
+        "semantic_type": "FINITE_DECIMAL?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 18,
+        "header": "error_code",
+        "semantic_type": "TEXT_80?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 19,
+        "header": "lead_model",
+        "semantic_type": "TEXT_128?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 20,
+        "header": "prompt_hash",
+        "semantic_type": "SHA256?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 21,
+        "header": "amount_minor",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 22,
+        "header": "currency",
+        "semantic_type": "ISO4217?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 23,
+        "header": "primary_patron_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 24,
+        "header": "artifact_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 25,
+        "header": "sha256_receipt",
+        "semantic_type": "SHA256?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 26,
+        "header": "dropzone_drive_id",
+        "semantic_type": "DRIVE_ID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 27,
+        "header": "claim_generation",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 28,
+        "header": "claim_state",
+        "semantic_type": "CLAIM_STATE?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 29,
+        "header": "updated_at",
+        "semantic_type": "UTC_MS",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 30,
+        "header": "entity_rev",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 31,
+        "header": "projection_seq",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 32,
+        "header": "ledger_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 33,
+        "header": "tenant_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 34,
+        "header": "authority_epoch",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 35,
+        "header": "generation_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 36,
+        "header": "record_digest",
+        "semantic_type": "SHA256",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 37,
+        "header": "sync_state",
+        "semantic_type": "SYNC_STATE",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 38,
+        "header": "closed_at",
+        "semantic_type": "UTC_MS",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 39,
+        "header": "terminal_commit_seq",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      }
+    ],
+    "_Control": [
+      {
+        "index_1based": 1,
+        "header": "ledger_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 2,
+        "header": "tenant_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 3,
+        "header": "schema_version",
+        "semantic_type": "SCHEMA_VERSION",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 4,
+        "header": "protocol_version",
+        "semantic_type": "PROTOCOL_VERSION",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 5,
+        "header": "generation_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 6,
+        "header": "layout_digest",
+        "semantic_type": "SHA256",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 7,
+        "header": "published_commit_seq",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 8,
+        "header": "chain_head_digest",
+        "semantic_type": "SHA256",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 9,
+        "header": "replay_floor_commit_seq",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 10,
+        "header": "snapshot_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 11,
+        "header": "snapshot_digest",
+        "semantic_type": "SHA256?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 12,
+        "header": "heartbeat_at",
+        "semantic_type": "UTC_MS",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 13,
+        "header": "cloud_state",
+        "semantic_type": "CLOUD_STATE",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 14,
+        "header": "backlog_transactions",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 15,
+        "header": "backlog_bytes",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 16,
+        "header": "oldest_pending_at",
+        "semantic_type": "UTC_MS?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 17,
+        "header": "directory_next_row",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 18,
+        "header": "pipeline_next_row",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 19,
+        "header": "archives_next_row",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 20,
+        "header": "changes_next_row",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      }
+    ],
+    "_Changes": [
+      {
+        "index_1based": 1,
+        "header": "frame_kind",
+        "semantic_type": "FRAME_KIND",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 2,
+        "header": "ledger_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 3,
+        "header": "tenant_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 4,
+        "header": "generation_id",
+        "semantic_type": "ULID",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 5,
+        "header": "commit_seq",
+        "semantic_type": "DECIMAL_I64",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 6,
+        "header": "event_ordinal",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 7,
+        "header": "event_count",
+        "semantic_type": "DECIMAL_I64?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 8,
+        "header": "operation_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 9,
+        "header": "payload_jcs",
+        "semantic_type": "JCS_24576",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 10,
+        "header": "payload_digest",
+        "semantic_type": "SHA256",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 11,
+        "header": "previous_transaction_digest",
+        "semantic_type": "SHA256?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      },
+      {
+        "index_1based": 12,
+        "header": "batch_id",
+        "semantic_type": "ULID?",
+        "sheets_storage": "stringValue",
+        "owner": "publisher"
+      }
+    ]
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "note": "Parameterized cases are enumerated in JUnit; this lists source functions.",
+  "functions": [
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_ddl_loaded"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_production_floor_fails_before_files"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_second_authority_rejected"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_initialization_never_overwrites"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_create_version_search_outbox_atomic"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_patch_retains_history"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_idempotency_before_stale_base"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_same_operation_changed_payload"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_disjoint_patch_merge"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_same_field_conflict"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_aba_conflict"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_nochange_no_fake_revision"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_injected_failure_rolls_back_all"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_immutable_history_guard"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_hard_delete_guard"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_tombstone_removes_search"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_tombstone_no_resurrection"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_tenant_mismatch"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_capability_cannot_come_from_packet"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_strict_json_rejects"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_jcs_utf16_order"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_outbound_formula_tokens_inert"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_phone_plus_not_globally_stripped"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_typed_cells_rejected"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_alias_search_and_get"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_tag_search"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_multilingual_search"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_fts_grammar_cannot_inject"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_org_rename_refreshes_dependents"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_interaction_does_not_revise_patron"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_interaction_supersession"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_campaign_membership_filter"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_plan_selection_and_progress_guard"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_two_simultaneous_claims_one_winner"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_old_claim_token_rejected"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_claim_retry_same_generation"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_unknown_dispatch_cannot_be_blindly_reclaimed"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_quarantine_no_search_contamination"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_observation_adoption_explicit"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_formula_cannot_be_adopted"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_observation_a_b_a_not_digest_deduplicated"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_repeated_observation_no_echo"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_proposal_cli_resolution_is_idempotent"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_cursor_rejects_changed_snapshot"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_sync_dry_run_no_side_effects"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_publication_complete_readback"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_human_columns_never_overwritten"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_timeout_after_apply_reconciles_without_resend"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_timeout_before_apply_holds_no_resend"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_429_retains_outbox_and_shared_cooldown"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_batch_50_row_bound"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_old_batch_does_not_publish_future_state"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_archive_move_counts_two_physical_rows"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_quota_shared_across_tenants"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_expired_quota_restart_does_not_reset_allowance"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_backup_is_consistent"
+    },
+    {
+      "file": "tests/test_crm_core.py",
+      "function": "test_500_logical_agents_deduplicate_and_drain_bounded_batches"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_apps_script_node_suite"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_python_to_apps_script_to_python_custody"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_authenticated_unix_cli"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_cli_rejects_ambiguous_options"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_restart_holds_claims"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_fencing_requires_host_proof"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_schema_fingerprint_detects_removed_trigger"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_vault_fails_without_advancing_capture"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_signed_snapshot_and_fenced_restore"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_snapshot_tampering_detected"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_merge_preserves_effective_interaction"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_rest_field_mask_balanced_and_literal_ranges"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_client_partial_send_is_unknown"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_fuzzy_candidate_policy"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_provision_only_unused_resource"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_read_watermark_stays_with_selected_snapshot"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_private_runtime_cannot_be_in_repository"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_banded_levenshtein_matches_reference"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_query_budget_does_not_poison_next_write"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_blank_canonical_cell_is_captured_not_ignored"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_idle_pipeline_drift_is_captured"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_shared_exact_domain_remains_multiple_candidates"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_email_local_part_not_silently_casefolded"
+    },
+    {
+      "file": "tests/test_integration.py",
+      "function": "test_production_quota_clock_ignores_wall_jump"
+    }
+  ]
+}

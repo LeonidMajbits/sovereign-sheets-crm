@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sovereign:crm:result:4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "command",
+    "ok",
+    "outcome",
+    "error",
+    "tenant_id",
+    "ledger_id",
+    "operation_id",
+    "as_of_commit_seq",
+    "data",
+    "sync",
+    "next_cursor"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "crm.result.v4"
+    },
+    "command": {
+      "enum": [
+        "list",
+        "show",
+        "audit",
+        "health",
+        "ingest",
+        "sync",
+        "query"
+      ]
+    },
+    "ok": {
+      "type": "boolean"
+    },
+    "outcome": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "code",
+            "retryable",
+            "message"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string",
+              "maxLength": 80
+            },
+            "retryable": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string",
+              "maxLength": 1024
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tenant_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ledger_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "operation_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "as_of_commit_seq": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,18})$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "data": {
+      "type": "object"
+    },
+    "sync": {
+      "type": "object",
+      "required": [
+        "state",
+        "published_commit_seq",
+        "pending_transactions"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "published_commit_seq": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,18})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pending_transactions": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,18})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "next_cursor": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 4096
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

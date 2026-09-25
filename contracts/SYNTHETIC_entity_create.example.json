@@ -1,0 +1,16 @@
+{
+  "schema_version": "crm.command.v4",
+  "operation_id": "01ARZ3NDEKTSV4RRFFQ69G5FA1",
+  "tenant_id": "01ARZ3NDEKTSV4RRFFQ69G5FA2",
+  "ledger_id": "01ARZ3NDEKTSV4RRFFQ69G5FA3",
+  "authority_epoch": "1",
+  "template_version": "1",
+  "base": null,
+  "command_type": "entity.create",
+  "payload": {
+    "entity_id": "01ARZ3NDEKTSV4RRFFQ69G5FA4",
+    "entity_kind": "person",
+    "display_name": "Synthetic Schema Fixture",
+    "facet": {}
+  }
+}

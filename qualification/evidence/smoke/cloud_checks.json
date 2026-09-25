@@ -1,0 +1,16 @@
+[
+  {
+    "all_exact": true,
+    "business_rows": 50,
+    "events": 700,
+    "tenant": 0,
+    "transactions": 250
+  },
+  {
+    "all_exact": true,
+    "business_rows": 50,
+    "events": 700,
+    "tenant": 1,
+    "transactions": 250
+  }
+]

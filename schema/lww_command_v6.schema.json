@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sovereign:crm:command:lww:v6",
+  "title": "Explicit authorized Lamport prose-register command",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "operation_id",
+    "tenant_id",
+    "ledger_id",
+    "authority_epoch",
+    "template_version",
+    "base",
+    "command_type",
+    "payload"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "crm.command.v6"
+    },
+    "command_type": {
+      "const": "entity.lww.set"
+    },
+    "template_version": {
+      "const": "1"
+    },
+    "operation_id": {
+      "type": "string",
+      "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+    },
+    "ledger_id": {
+      "type": "string",
+      "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+    },
+    "authority_epoch": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "commit_seq",
+        "transaction_digest"
+      ],
+      "properties": {
+        "commit_seq": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "transaction_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "field",
+        "value",
+        "logical_clock"
+      ],
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "pattern": "^[0-7][0-9A-HJKMNP-TV-Z]{25}$"
+        },
+        "field": {
+          "enum": [
+            "note",
+            "next_action"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 2048
+        },
+        "logical_clock": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]*$"
+        }
+      }
+    }
+  },
+  "description": "Server enforces signed-64-bit bounds, original base authenticity, first-use field guard, Unicode/byte caps, live permitted entity kind and separate entity.lww capability. No remote Apps Script v6 admission is implemented."
+}

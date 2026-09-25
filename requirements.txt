@@ -1,0 +1,4 @@
+# Core packages as tested. SQLite itself is linked to Python, not installed here.
+jsonschema==4.26.0
+cryptography==46.0.4
+idna==3.17

@@ -1,0 +1,102 @@
+ADMITTED 2500/50000
+ADMITTED 5000/50000
+ADMITTED 7500/50000
+ADMITTED 10000/50000
+ADMITTED 12500/50000
+ADMITTED 15000/50000
+ADMITTED 17500/50000
+ADMITTED 20000/50000
+ADMITTED 22500/50000
+ADMITTED 25000/50000
+ADMITTED 27500/50000
+ADMITTED 30000/50000
+ADMITTED 32500/50000
+ADMITTED 35000/50000
+ADMITTED 37500/50000
+ADMITTED 40000/50000
+ADMITTED 42500/50000
+ADMITTED 45000/50000
+ADMITTED 47500/50000
+ADMITTED 50000/50000
+ALL LOCAL STATE AND REPLAY ORACLES PASS
+DRAIN applied=37 attempts=45 remaining_tenants=10
+DRAIN applied=70 attempts=78 remaining_tenants=10
+DRAIN applied=102 attempts=111 remaining_tenants=10
+DRAIN applied=136 attempts=145 remaining_tenants=10
+DRAIN applied=169 attempts=178 remaining_tenants=10
+DRAIN applied=201 attempts=211 remaining_tenants=10
+DRAIN applied=235 attempts=245 remaining_tenants=10
+DRAIN applied=267 attempts=277 remaining_tenants=10
+DRAIN applied=296 attempts=307 remaining_tenants=10
+DRAIN applied=328 attempts=339 remaining_tenants=10
+DRAIN applied=358 attempts=369 remaining_tenants=10
+DRAIN applied=389 attempts=401 remaining_tenants=10
+DRAIN applied=422 attempts=434 remaining_tenants=10
+DRAIN applied=455 attempts=467 remaining_tenants=10
+DRAIN applied=488 attempts=501 remaining_tenants=10
+DRAIN applied=521 attempts=534 remaining_tenants=10
+DRAIN applied=554 attempts=567 remaining_tenants=10
+DRAIN applied=587 attempts=601 remaining_tenants=10
+DRAIN applied=620 attempts=634 remaining_tenants=10
+DRAIN applied=653 attempts=667 remaining_tenants=10
+DRAIN applied=686 attempts=701 remaining_tenants=10
+DRAIN applied=719 attempts=734 remaining_tenants=10
+DRAIN applied=752 attempts=767 remaining_tenants=10
+DRAIN applied=797 attempts=813 remaining_tenants=10
+DRAIN applied=847 attempts=863 remaining_tenants=10
+DRAIN applied=896 attempts=913 remaining_tenants=10
+DRAIN applied=946 attempts=963 remaining_tenants=10
+DRAIN applied=995 attempts=1013 remaining_tenants=10
+DRAIN applied=1045 attempts=1063 remaining_tenants=5
+DRAIN applied=1094 attempts=1113 remaining_tenants=5
+DRAIN applied=1144 attempts=1163 remaining_tenants=5
+DRAIN applied=1193 attempts=1213 remaining_tenants=5
+{
+  "status": "LOCAL_SIMULATED_MATRIX_PASS",
+  "fixture": {
+    "workers": 100,
+    "tenants": 10,
+    "operations": 50000,
+    "creates": 10000,
+    "lww_mutations": 40000,
+    "same_id_replays": 50000,
+    "seed": 260924,
+    "shared_tabs": "Workers share their tenant workbook tabs; untrusted tenant workbooks remain isolated."
+  },
+  "workload": {
+    "wall_seconds_admission_plus_replays": 432.67828509699996,
+    "max_overlapping_ingest_calls": 76,
+    "ingest": {
+      "p50_ms": 347.102013,
+      "p95_ms": 873.715677,
+      "p99_ms": 1265.823564,
+      "max_ms": 3514.390471,
+      "samples": 50000
+    },
+    "replay": {
+      "p50_ms": 125.493956,
+      "p95_ms": 262.267402,
+      "p99_ms": 347.021766,
+      "max_ms": 698.175063,
+      "samples": 50000
+    }
+  },
+  "publication": {
+    "batches": 1230,
+    "write_attempts": 1250,
+    "max_bytes": 524261,
+    "max_physical_business_rows": 48,
+    "bytes": 633561969,
+    "429s": 20,
+    "lost_response_injections": 2,
+    "unknown_exceptions": 2,
+    "quota_holds": 2021,
+    "rolling_start_maxima": {
+      "sheets_read": 30,
+      "sheets_write": 4
+    },
+    "virtual_recovery_seconds": 19129.79942035675,
+    "wall_drain_seconds": 1371.3743177239999,
+    "remaining": 0
+  }
+}

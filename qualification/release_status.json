@@ -1,0 +1,89 @@
+{
+  "actual_environment": {
+    "compatibility_only": true,
+    "cpu_count": 5,
+    "machine": "x86_64",
+    "network": "SIMULATED_ONLY",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "sqlite": "3.46.1",
+    "sqlite_runtime_gate": false,
+    "target_darwin_arm64": false
+  },
+  "evidence_paths": {
+    "adversarial": "qualification/evidence/adversarial/adversarial_results.json",
+    "primary": "qualification/evidence/full/matrix_results.json",
+    "rpc": "qualification/evidence/rpc/rpc_results.json",
+    "streaming": "qualification/evidence/streaming/streaming_results.json",
+    "tests": "qualification/evidence/release_tests.xml"
+  },
+  "executed": {
+    "claim_races": 10,
+    "crash_cases": 5,
+    "exact_fts_documents": 10000,
+    "exported_audit_events": 140000,
+    "exported_audit_transactions": 50000,
+    "lamport_permutation_runs": 4,
+    "node_checks": 20,
+    "python_tests": 134,
+    "rpc_commands": 500,
+    "rpc_replays": 500,
+    "streaming_operations": 2000,
+    "trace_oracle": "PASS"
+  },
+  "gates": {
+    "automatic_resource_cutover": "NOT_IMPLEMENTED",
+    "claims_and_idempotency": "PASS",
+    "darwin_m3_execution": "NOT_RUN",
+    "financial_double_spend": "NOT_A_FINANCIAL_ENGINE",
+    "full_50000_authenticated_rpc_soak": "NOT_RUN",
+    "live_google": "NOT_RUN",
+    "local_compatibility_matrix": "PASS",
+    "quota_partition_model": "PASS",
+    "sqlite_required_runtime": "NOT_MET_THIS_HOST",
+    "universal_search_latency": "PRIOR_FAILURE_NOT_CLOSED",
+    "unrestricted_lww_all_fields": "NOT_ADMITTED"
+  },
+  "integrity": {
+    "cloud_events_exact": 140000,
+    "cloud_transactions_exact": 50000,
+    "cross_tenant_accepts": 0,
+    "double_spend_scope": "Idempotent CRM effects only; claims and synthetic spend negative control are separate matrix cases. No financial endpoint tested.",
+    "duplicate_canonical_effects": 0,
+    "local_chain_checks": 10,
+    "lost_accepted_operations": 0,
+    "missing_entity_versions": 0
+  },
+  "primary_workload": {
+    "creates": 10000,
+    "lww_mutations": 40000,
+    "operations": 50000,
+    "same_id_replays": 50000,
+    "seed": 260924,
+    "shared_tabs": "Workers share their tenant workbook tabs; untrusted tenant workbooks remain isolated.",
+    "tenants": 10,
+    "workers": 100
+  },
+  "production_admitted": false,
+  "publication": {
+    "429s": 20,
+    "batches": 1230,
+    "bytes": 633561969,
+    "lost_response_injections": 2,
+    "max_bytes": 524261,
+    "max_physical_business_rows": 48,
+    "quota_holds": 2021,
+    "remaining": 0,
+    "rolling_start_maxima": {
+      "sheets_read": 30,
+      "sheets_write": 4
+    },
+    "unknown_exceptions": 2,
+    "virtual_recovery_seconds": 19129.79942035675,
+    "wall_drain_seconds": 1371.3743177239999,
+    "write_attempts": 1250
+  },
+  "qualification_status": "CONDITIONAL_TARGET_AND_CLOUD_GATES_OPEN",
+  "release_version": "1.0.0",
+  "scope_note": "Observed fixture results, not a statistical or universal proof of all workloads or deployments. Google and elapsed quota time are simulated; SQLite files and threads are real."
+}

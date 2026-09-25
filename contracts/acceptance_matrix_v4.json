@@ -1,0 +1,768 @@
+{
+  "status": "SPECIFIED_NOT_EXECUTED",
+  "cases": [
+    {
+      "id": "T2-C01",
+      "fixture": "Human draft plus automated interaction append",
+      "oracle": "Draft bytes survive; interaction commits; observation remains separately resolvable",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C02",
+      "fixture": "Based disjoint patches",
+      "oracle": "Both accepted if all semantic dependencies remain valid",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C03",
+      "fixture": "Two different same-field status changes",
+      "oracle": "One commits; the other records FIELD_CONFLICT",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C04",
+      "fixture": "Status ABA",
+      "oracle": "Changed field stamp prevents stale transition",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C05",
+      "fixture": "Two note replacements",
+      "oracle": "No concatenation; full discrepancy evidence",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C06",
+      "fixture": "Paste multiple cells",
+      "oracle": "No invented old values or human transaction boundary",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C07",
+      "fixture": "Raw input with no known base/editor",
+      "oracle": "CAPTURED_UNBASED; no fabricated attribution",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C08",
+      "fixture": "Same operation repeated after lost response",
+      "oracle": "Original outcome; exactly one local effect",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C09",
+      "fixture": "Same operation ID, different payload",
+      "oracle": "Rejected identity reuse",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C10",
+      "fixture": "Direct canonical edit during unrelated field publish",
+      "oracle": "Unrelated range only; capture/quarantine changed canonical field",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C11",
+      "fixture": "Direct same-cell race",
+      "oracle": "Unsupported guarantee demonstrated; supported human-column path remains safe",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C12",
+      "fixture": "Missed trigger with stable remaining input",
+      "oracle": "Bounded scan captures it",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C13",
+      "fixture": "A → B → A between observations, no captured event",
+      "oracle": "No fabricated claim of complete edit history",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C14",
+      "fixture": "Stale acknowledgment beside new input",
+      "oracle": "Digest mismatch identifies unacknowledged new contents",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C15",
+      "fixture": "Blank draft after commit",
+      "oracle": "No canonical deletion or rollback",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C16",
+      "fixture": "Delete/update or stale resurrection",
+      "oracle": "Tombstone or conflict; identity not reused",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C17",
+      "fixture": "Field merge with amount/currency dependency",
+      "oracle": "Dependency failure blocks apparently disjoint merge",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C18",
+      "fixture": "Parent-child membership changes",
+      "oracle": "Relationship guard catches phantom/member changes",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C19",
+      "fixture": "Writer crash before/after commit",
+      "oracle": "All or none of state, journal, FTS and outbox",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C20",
+      "fixture": "Quota storm",
+      "oracle": "Shared throttle, bounded backoff, no dropped committed operations",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C21",
+      "fixture": "Network loss after cloud send",
+      "oracle": "UNKNOWN, not false failure or premature new mutable batch",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C22",
+      "fixture": "Receipt from one of two unresolved duplicate writes",
+      "oracle": "Not treated as proof that both are finished",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C23",
+      "fixture": "Projection recovery",
+      "oracle": "New resource ID isolates old writes; draft lineage retained",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C24",
+      "fixture": "Partial change page or missing event ordinal",
+      "oracle": "Cursor does not advance across incomplete transaction",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C25",
+      "fixture": "50-row batch crossing human columns",
+      "oracle": "Range planner rejects it before send",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C26",
+      "fixture": "Null versus empty in ValueRange",
+      "oracle": "Deliberate wire clearing behavior; no accidental skipped canonical clear",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C27",
+      "fixture": "Sheet sort, changed ID or deleted row",
+      "oracle": "Layout quarantine; no row-address identity inference",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C28",
+      "fixture": "Formula/prompt injection in note",
+      "oracle": "Typed capture/rejection or inert text; no tool action",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C29",
+      "fixture": "FTS update failure",
+      "oracle": "Canonical operation rolled back; no silently stale index",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C30",
+      "fixture": "Organization rename",
+      "oracle": "Dependent search documents updated consistently",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C31",
+      "fixture": "Tenant-crossing query/filter/merge",
+      "oracle": "No foreign hits, snippets, counts, identities or mutation",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C32",
+      "fixture": "Shared phone, generic email, homonymous names",
+      "oracle": "Multiple candidates, no automatic identity merge",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C33",
+      "fixture": "Fuzzy candidate cap hit",
+      "oracle": "Truncation/recall limitation visible",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C34",
+      "fixture": "Fixed exact/FTS/fuzzy performance fixture",
+      "oracle": "Separate measured percentile gates; cold CLI excluded and separately measured",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C35",
+      "fixture": "Old snapshot restored",
+      "oracle": "No counter reuse under a falsely continuous ledger",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C36",
+      "fixture": "Migration with queued older commands",
+      "oracle": "Declared migration or schema rejection; no silent reinterpretation",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C37",
+      "fixture": "ULID issuers and backwards clock",
+      "oracle": "No timestamp-based commit order; allocator/collision policy enforced",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C38",
+      "fixture": "Notification/cursor checkpoint crash",
+      "oracle": "Replay or durable dirty work, never skipped reconciliation",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C39",
+      "fixture": "Cloud coalesces several revisions",
+      "oracle": "Every canonical revision remains in audit history",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T2-C40",
+      "fixture": "Disk/backlog limit reached",
+      "oracle": "Optional work suppressed; new unsafe commits rejected; old obligations retained",
+      "execution_status": "NOT_RUN",
+      "source": "T2"
+    },
+    {
+      "id": "T3-Q01",
+      "fixture": "500 distinct small updates arrive in one wave",
+      "oracle": "Each accepted operation has one durable outcome; 10 batches only when bytes fit; no per-agent provider calls",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-Q02",
+      "fixture": "All 500 callers retry lost local responses",
+      "oracle": "Stable operation IDs return originals; no extra canonical mutations",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-Q03",
+      "fixture": "Provider rejects publication with authenticated pre-application 429",
+      "oracle": "One cooldown owner; shared scheduler backs off; outbox retained",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-Q04",
+      "fixture": "Process restarts after quota reservation but before send",
+      "oracle": "Reservation is retained conservatively; no burst resets allowance",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-Q05",
+      "fixture": "Multiple tenants share one effective user/project",
+      "oracle": "Aggregated physical starts respect shared ceilings",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-Q06",
+      "fixture": "Fifty rows exceed 512 KiB after audit framing",
+      "oracle": "Batch shrinks or operation follows admitted large-transaction path; no partial commit publication",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-Q07",
+      "fixture": "Sustained input exceeds measured drain capacity",
+      "oracle": "Backlog/age visible; bounded admission before disk exhaustion; no deletion of accepted history",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-Q08",
+      "fixture": "Proxy error follows a possibly sent request",
+      "oracle": "UNKNOWN rather than quota-retry shortcut; no newer conflicting publication",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-P01",
+      "fixture": "Raw 40 offline cell values reconnect against 150 task updates",
+      "oracle": "Observations captured without fabricated bases; all accepted task updates remain",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-P02",
+      "fixture": "Only part of mobile's pending edits reaches cloud during first scan",
+      "oracle": "No claim that the complete offline operation set has been seen",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-P03",
+      "fixture": "Based independent patches have valid field/dependency stamps",
+      "oracle": "Both orders reach equivalent relevant business state; audit orders remain distinct",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-P04",
+      "fixture": "Same field changes and reverts while phone is offline",
+      "oracle": "New field stamp detects ABA despite value equality",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-P05",
+      "fixture": "One patch changes amount and another changes currency",
+      "oracle": "Server-defined coupled dependencies prevent unsafe disjoint merge",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-P06",
+      "fixture": "Target deleted or relationship membership changed",
+      "oracle": "Tombstone/guard conflict; no stale resurrection or phantom acceptance",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-P07",
+      "fixture": "Observation adopted while another locally captured proposal supersedes its selection",
+      "oracle": "Observation-selection guard forces re-evaluation",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-P08",
+      "fixture": "Two human editors overwrite the same input cell before capture",
+      "oracle": "No false guarantee of retrieving missing intermediate edits",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-S01",
+      "fixture": "Entity title has typed formulaValue for IMAGE or IMPORTXML",
+      "oracle": "No canonical/FTS/memory promotion and no lab-side URL fetch",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-S02",
+      "fixture": "Formula yields harmless-looking effective text",
+      "oracle": "Formula provenance still rejects input; cached/effective value is not laundered",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-S03",
+      "fixture": "Spill/data-source result lacks an allowed typed literal source",
+      "oracle": "Reject or quarantine the value as nonliteral/unproven source",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-S04",
+      "fixture": "Quarantine bytes contain instructions and forged role fields",
+      "oracle": "Store raw evidence only in vault; no model/tool authority escalation",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-S05",
+      "fixture": "Literal cell contains prompt injection without spreadsheet syntax",
+      "oracle": "Data treatment and capability policy still apply; no claim of semantic immunity",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-S06",
+      "fixture": "Formula/CSV/control characters are later rendered or exported",
+      "oracle": "Inert output encoding; automatic risky CSV export remains disabled",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-S07",
+      "fixture": "Vault write fails or exceeds the safe capture limit",
+      "oracle": "No accepted observation/repair acknowledgment without durable required evidence",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-S08",
+      "fixture": "Editor bypasses protection or alters IDs/schema",
+      "oracle": "Layout/content quarantine; no claim that protection is a security boundary",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-C01",
+      "fixture": "Two acquisitions begin within 10 ms",
+      "oracle": "At most one successful current holder without intervening release; no 10 ms latency promise",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-C02",
+      "fixture": "Negative control uses blind owner replacement after serialized starts",
+      "oracle": "Test demonstrates both can report success; proves BEGIN alone is insufficient",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-C03",
+      "fixture": "Winner crashes before commit",
+      "oracle": "No durable claim or external dispatch authorization; other caller may acquire",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-C04",
+      "fixture": "Winner commits and response is lost",
+      "oracle": "Same-ID retry recovers recorded outcome without another claim generation",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-C05",
+      "fixture": "Revoked worker later submits completion",
+      "oracle": "Stale fence rejected; evidence does not complete task",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-C06",
+      "fixture": "Old grant receipt is replayed after a new claim",
+      "oracle": "Historical success is not accepted as a current token",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-C07",
+      "fixture": "Shared connection receives reentrant coroutine commands",
+      "oracle": "Broker prevents transaction interleaving; no accidental shared transaction",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-C08",
+      "fixture": "Old external action is UNKNOWN during attempted recovery",
+      "oracle": "No fresh non-idempotent dispatch justified solely by reassignment",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-X01",
+      "fixture": "Credential access token expires during unattended run",
+      "oracle": "Supported automatic renewal or AUTH_BLOCKED; no browser launch",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-X02",
+      "fixture": "Key/sharing rights permanently revoked",
+      "oracle": "Local state preserved; no authentication bypass or false cloud success",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-X03",
+      "fixture": "Required replacement workbook cannot be created/allocated",
+      "oracle": "RECOVERY_RESOURCE_BLOCKED; no unsafe reuse or manual UI dependency",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-X04",
+      "fixture": "Duplicate JSON key, number coercion, Unicode normalization mismatch",
+      "oracle": "Reject malformed/noncanonical semantic input; signatures do not validate alternate meaning",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-X05",
+      "fixture": "Modified checkpoint and attacker-supplied replacement public key",
+      "oracle": "Trusted pinned-key verification fails; adjacent key is not accepted",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-X06",
+      "fixture": "Receipt found for one of two potentially live duplicate writes",
+      "oracle": "UNKNOWN is not cleared solely from that receipt",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-X07",
+      "fixture": "FTS/audit/outbox update fails inside claim or patch transaction",
+      "oracle": "No partial COMMITTED business result",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T3-X08",
+      "fixture": "Restore uses an old database with reused ledger counters",
+      "oracle": "Reject false continuation; require verified history or new ledger with real fencing",
+      "execution_status": "NOT_RUN",
+      "source": "T3"
+    },
+    {
+      "id": "T4-R01",
+      "fixture": "fresh empty schema creation",
+      "oracle": "All declared tables/indices/triggers load; FK checks clean",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R02",
+      "fixture": "linked runtime version",
+      "oracle": "SQLite >=3.51.3 with required features; actual OS/runtime attested",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R03",
+      "fixture": "command duplicate keys and JCS",
+      "oracle": "Reject duplicate/noncanonical envelopes before payload interpretation",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R04",
+      "fixture": "schema validation versus semantic validation",
+      "oracle": "JSON-schema pass cannot bypass byte caps, signed64 bounds, states or permission checks",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R05",
+      "fixture": "atomic canonical/audit/FTS/outbox commit",
+      "oracle": "Fault injection into any component leaves all-or-none result",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R06",
+      "fixture": "same-cell publisher/human range ownership",
+      "oracle": "Directory human columns never appear in publication masks",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R07",
+      "fixture": "terminal movement",
+      "oracle": "Archive write and pipeline retirement atomic; two physical rows charged",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R08",
+      "fixture": "closed counterparties",
+      "oracle": "Closed/tombstoned Directory identities do not move or reuse human-input slots",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R09",
+      "fixture": "list pagination during commits",
+      "oracle": "Stale cursor fails without mixed snapshots or skipped results",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R10",
+      "fixture": "ingest response loss",
+      "oracle": "Stable operation ID recovers outcome; cannot turn retry into new intent",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R11",
+      "fixture": "sync dry-run",
+      "oracle": "Zero Google calls, zero local writes, no cursor or quota reservation advancement",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R12",
+      "fixture": "sync pull",
+      "oracle": "May persist observations; sends zero Google mutations and never auto-adopts",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R13",
+      "fixture": "sync push",
+      "oracle": "Required safety reads permitted; cannot bypass UNKNOWN or silently consume raw intent",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R14",
+      "fixture": "exit-code mapping",
+      "oracle": "Every disposition matches fixed code and machine envelope",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R15",
+      "fixture": "warm FTS sub-millisecond gate",
+      "oracle": "p95 <1ms SQL lookup including top20 IDs; fresh fixture and raw samples retained",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R16",
+      "fixture": "end-to-end search",
+      "oracle": "Normalize/query/joins/materialize p95 <5ms separately; cold CLI measured, not relabeled",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R17",
+      "fixture": "strict profile without Apps Script",
+      "oracle": "All required functionality runs with optional bridge disabled",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R18",
+      "fixture": "optional trigger context",
+      "oracle": "Installable trigger stages metadata only; no HTTP-response or COMMITTED claim",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R19",
+      "fixture": "bridge duplicate file creation",
+      "oracle": "Home deduplicates by signed identity/content; filenames never authoritative",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R20",
+      "fixture": "bridge formula-bearing event",
+      "oracle": "Raw formula never copied into Drive staging; local scanner captures inert evidence",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R21",
+      "fixture": "bridge partial Drive upload/response loss",
+      "oracle": "No confirmed receipt until complete file readback; retry does not commit duplicate command",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R22",
+      "fixture": "bridge auth/permission loss",
+      "oracle": "Named failure and safe local operation; no automatic browser repair",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R23",
+      "fixture": "staging pagination race",
+      "oracle": "Overlapping scans/replay and local receipts prevent acknowledged skipped files",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R24",
+      "fixture": "resource exhaustion/recovery",
+      "oracle": "Known unused resource or explicit blocked state; no unsafe same-target reuse",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R25",
+      "fixture": "telemetry producer missing",
+      "oracle": "No invented vector units; telemetry admission disabled without accepted contract",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R26",
+      "fixture": "cumulative archive verification",
+      "oracle": "All baseline full-file hashes and root manifest match",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R27",
+      "fixture": "FTS maintenance with trusted_schema OFF",
+      "oracle": "Direct broker transaction updates search; no unsafe virtual-table trigger workaround",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R28",
+      "fixture": "credential/grant separation",
+      "oracle": "Ingress can neither publish canonical rows nor sign authority checkpoints",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    },
+    {
+      "id": "T4-R29",
+      "fixture": "release gate enforcement",
+      "oracle": "No runtime release claim until all mandatory executed evidence and explicit admission exist",
+      "execution_status": "NOT_RUN",
+      "source": "T4"
+    }
+  ]
+}

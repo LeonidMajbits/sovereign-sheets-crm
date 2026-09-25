@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "compatibility_only": true,
+  "workers": 100,
+  "canonical_operations": 500,
+  "exact_replays": 500,
+  "wire_attempts": 2622,
+  "transient_rejections": {
+    "LOCAL_OUTCOME_UNKNOWN": 1312,
+    "BROKER_RESPONSE": 310
+  },
+  "logical_request_latency_including_retry": {
+    "p50_ms": 210.594415,
+    "p95_ms": 2143.535508,
+    "p99_ms": 4232.89982,
+    "max_ms": 6435.353104,
+    "samples": 1000
+  },
+  "wall_seconds": 6.815917466999963,
+  "audit": {
+    "transactions": "500",
+    "head_digest": "23d7a246e81a7bf840ccb1c02c22e66028007b103876b3c5c62a79d885dcbf0f",
+    "verified": true
+  },
+  "server_inflight_bound": 32,
+  "nonce_window_capacity": 4096,
+  "sustained_50000_rpc_operations_tested": false,
+  "google_used": false
+}

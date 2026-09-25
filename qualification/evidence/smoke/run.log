@@ -1,0 +1,50 @@
+ALL LOCAL STATE AND REPLAY ORACLES PASS
+{
+  "status": "LOCAL_SIMULATED_MATRIX_PASS",
+  "fixture": {
+    "workers": 10,
+    "tenants": 2,
+    "operations": 500,
+    "creates": 100,
+    "lww_mutations": 400,
+    "same_id_replays": 500,
+    "seed": 260924,
+    "shared_tabs": "Workers share their tenant workbook tabs; untrusted tenant workbooks remain isolated."
+  },
+  "workload": {
+    "wall_seconds_admission_plus_replays": 2.537921263000044,
+    "max_overlapping_ingest_calls": 10,
+    "ingest": {
+      "p50_ms": 20.341103,
+      "p95_ms": 42.864107,
+      "p99_ms": 59.757242,
+      "max_ms": 86.38912,
+      "samples": 500
+    },
+    "replay": {
+      "p50_ms": 10.883161,
+      "p95_ms": 21.818482,
+      "p99_ms": 30.795007,
+      "max_ms": 39.287353,
+      "samples": 500
+    }
+  },
+  "publication": {
+    "batches": 14,
+    "write_attempts": 22,
+    "max_bytes": 523979,
+    "max_physical_business_rows": 47,
+    "bytes": 6302067,
+    "429s": 8,
+    "lost_response_injections": 0,
+    "unknown_exceptions": 0,
+    "quota_holds": 22,
+    "rolling_start_maxima": {
+      "sheets_write": 4,
+      "sheets_read": 28
+    },
+    "virtual_recovery_seconds": 708.5715093612671,
+    "wall_drain_seconds": 16.21702335100008,
+    "remaining": 0
+  }
+}

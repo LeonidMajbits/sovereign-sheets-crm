@@ -1,0 +1,64 @@
+{
+  "schema_version": 4,
+  "kind_statuses": {
+    "person": [
+      "lead",
+      "engaged",
+      "closed"
+    ],
+    "organization": [
+      "lead",
+      "engaged",
+      "closed"
+    ],
+    "campaign": [
+      "active",
+      "completed",
+      "shelved"
+    ],
+    "project": [
+      "active",
+      "completed",
+      "shelved"
+    ],
+    "stage": [
+      "queued",
+      "running",
+      "blocked",
+      "completed",
+      "cancelled"
+    ],
+    "ticket": [
+      "queued",
+      "running",
+      "blocked",
+      "completed",
+      "cancelled"
+    ],
+    "opportunity": [
+      "lead",
+      "qualified",
+      "proposed",
+      "won",
+      "lost"
+    ],
+    "contract": [
+      "draft",
+      "signed",
+      "fulfilled",
+      "terminated"
+    ],
+    "thread": [
+      "open",
+      "closed"
+    ],
+    "dispatch": [
+      "queued",
+      "cooking",
+      "harvested",
+      "error",
+      "cancelled",
+      "unknown"
+    ]
+  }
+}

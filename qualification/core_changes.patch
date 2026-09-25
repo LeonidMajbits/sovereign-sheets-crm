@@ -1,0 +1,213 @@
+--- turn05/crm/__init__.py
++++ v1.0.0/crm/__init__.py
+@@ -1,2 +1,3 @@
+-"""Machine-native single-authority CRM. Release candidate, not a SaaS service."""
+-__version__ = '0.5.0rc1'
++"""Machine-native single-authority CRM. See qualification status, not just version."""
++__version__ = '1.0.0'
++QUALIFICATION_STATUS = 'CONDITIONAL_TARGET_AND_CLOUD_GATES_OPEN'
+--- turn05/crm/codec.py
++++ v1.0.0/crm/codec.py
+@@ -87,14 +87,16 @@
+ 
+ def jcs(obj) -> bytes:
+     validate_tree(obj)
+-    def enc(x):
++    def ordered(x):
+         if type(x) is dict:
+-            keys = sorted(x, key=lambda k: k.encode('utf-16be'))
+-            return '{' + ','.join(enc(k)+':'+enc(x[k]) for k in keys) + '}'
++            return {k:ordered(x[k]) for k in sorted(x,key=lambda k:k.encode('utf-16be'))}
+         if type(x) is list:
+-            return '[' + ','.join(enc(v) for v in x) + ']'
+-        return json.dumps(x, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
+-    return enc(obj).encode('utf-8')
++            return [ordered(v) for v in x]
++        return x
++    # Same validated integer-only profile and UTF-16 key order as the v5
++    # encoder; the C JSON encoder handles the whole ordered tree in one pass.
++    return json.dumps(ordered(obj),ensure_ascii=False,separators=(',', ':'),allow_nan=False).encode('utf-8')
++
+ 
+ def digest(obj, domain: str = '') -> str:
+     data = obj if isinstance(obj, bytes) else jcs(obj)
+--- turn05/crm/engine.py
++++ v1.0.0/crm/engine.py
+@@ -20,6 +20,7 @@
+ VALIDATOR = Draft202012Validator(SCHEMA)
+ CAPS = {x['command_type']:x['capability'] for x in json.loads((ROOT/'contracts/command_registry_v4.json').read_text())['commands']}
+ CAPS['entity.tag.set'] = 'entity.edit'
++CAPS['entity.lww.set'] = 'entity.lww'
+ ALL_CAPS = frozenset(CAPS.values()) | {'sync','query','read','capture','artifact.register'}
+ 
+ @dataclass(frozen=True)
+@@ -217,12 +218,15 @@
+         # Trusted convenience for integrations; a caller retry must retain returned packet.
+         from .ids import new_id
+         s=self.state()
+-        return dict(schema_version='crm.command.v5' if command_type=='entity.tag.set' else 'crm.command.v4',operation_id=operation_id or new_id(),tenant_id=s['tenant_id'],ledger_id=s['ledger_id'],authority_epoch=str(s['authority_epoch']),template_version='1',base=self.base() if base=='current' else base,command_type=command_type,payload=payload)
++        return dict(schema_version=('crm.command.v6' if command_type=='entity.lww.set' else 'crm.command.v5' if command_type=='entity.tag.set' else 'crm.command.v4'),operation_id=operation_id or new_id(),tenant_id=s['tenant_id'],ledger_id=s['ledger_id'],authority_epoch=str(s['authority_epoch']),template_version='1',base=self.base() if base=='current' else base,command_type=command_type,payload=payload)
+ 
+     def validate(self,packet):
+         raw=jcs(packet)
+         if len(raw)>65536: raise CRMError('COMMAND_TOO_LARGE')
+-        if packet.get('command_type')=='entity.tag.set':
++        if packet.get('command_type')=='entity.lww.set':
++            from .lamport import validate
++            validate(packet,VALIDATOR)
++        elif packet.get('command_type')=='entity.tag.set':
+             # Explicit v5 additive command; all v4 commands retain their frozen schemas.
+             shadow=copy.deepcopy(packet); shadow['schema_version']='crm.command.v4';shadow['command_type']='entity.patch';shadow['payload']={'entity_id':packet.get('payload',{}).get('entity_id'),'changes':{'note':''}}
+             if not VALIDATOR.is_valid(shadow): raise CRMError('COMMAND_SCHEMA')
+@@ -276,7 +280,10 @@
+                     if n>s['commit_seq'] or expected!=b['transaction_digest']: raise Conflict('BASE_UNAVAILABLE')
+                 elif cmd!='entity.create': raise Conflict('BASE_REQUIRED')
+                 from .entities import dispatch
+-                dispatch(w,cmd,packet['payload'])
++                if cmd=='entity.lww.set':
++                    from .lamport import apply
++                    apply(w,packet['payload'])
++                else:dispatch(w,cmd,packet['payload'])
+                 self.fault('after_domain')
+                 result=w.finish()
+                 c.execute('RELEASE domain')
+--- turn05/crm/entities.py
++++ v1.0.0/crm/entities.py
+@@ -72,7 +72,10 @@
+ 
+ 
+ def patch(w,p):
+-    eid=p['entity_id'];changes=p['changes'];w.depend(eid,changes)
++    eid=p['entity_id'];changes=p['changes']
++    from .lamport import assert_based_write_allowed
++    assert_based_write_allowed(w,eid,changes)
++    w.depend(eid,changes)
+     row=w.get(eid)
+     cleaned={k:text(v,2048 if k=='note' else 1024,k!='display_name') for k,v in changes.items()}
+     if 'display_name' in cleaned and (not cleaned['display_name'].strip() or cleaned['display_name'].lstrip().startswith('=')):raise CRMError('INVALID_NAME')
+--- turn05/crm/lamport.py
++++ v1.0.0/crm/lamport.py
+@@ -0,0 +1,61 @@
++"""Opt-in, audited Lamport registers for note/next_action only.
++
++This is an explicit v6 extension, NOT a replacement for guarded claims, money,
++status, identities or unbased human-input reconciliation. First use acquires
++field ownership after a based check. Ordinary patches cannot bypass ownership.
++All authenticated candidates (including losers) are immutable audit events.
++"""
++from __future__ import annotations
++import copy
++from .codec import integer, jcs, loads, text, ulid, MAX_I64
++from .errors import CRMError, Conflict
++
++FIELDS = frozenset({'note', 'next_action'})
++KINDS = frozenset({'person', 'organization', 'campaign', 'project'})
++
++def key(entity_id,field):
++    return 'lamport.v6.head:' + entity_id + ':' + field
++
++def validate(packet,validator):
++    p=packet.get('payload',{})
++    if not isinstance(p,dict) or set(p)!={'entity_id','field','value','logical_clock'}:
++        raise CRMError('COMMAND_SCHEMA')
++    shadow=copy.deepcopy(packet)
++    shadow.update(schema_version='crm.command.v4',command_type='entity.patch',
++                  payload={'entity_id':p.get('entity_id'),'changes':{'note':''}})
++    if packet.get('schema_version')!='crm.command.v6' or not validator.is_valid(shadow):
++        raise CRMError('COMMAND_SCHEMA')
++    ulid(p['entity_id'])
++    if p['field'] not in FIELDS:raise CRMError('LWW_FIELD_FORBIDDEN')
++    if integer(p['logical_clock'],1)>=MAX_I64:raise CRMError('LAMPORT_EXHAUSTED')
++    value=text(p['value'],2048 if p['field']=='note' else 1024,True)
++    if value is not None and value.lstrip().startswith('='):raise CRMError('FORMULA_LIKE_INPUT')
++
++def assert_based_write_allowed(w,eid,changes):
++    for field in changes:
++        if field in FIELDS and w.c.execute('SELECT 1 FROM runtime_state WHERE key=?',(key(eid,field),)).fetchone():
++            raise Conflict('LWW_FIELD_OWNED')
++
++def apply(w,p):
++    eid,field=p['entity_id'],p['field']
++    row=w.get(eid,kind=tuple(KINDS));w.depend(eid)
++    name=key(eid,field)
++    prior=w.c.execute('SELECT value FROM runtime_state WHERE key=?',(name,)).fetchone()
++    head=loads(prior[0]) if prior else None
++    if head is None:w.depend(eid,(field,))
++    clock=integer(p['logical_clock'],1)
++    lr=w.c.execute("SELECT value FROM runtime_state WHERE key='lamport.v6.receive_clock'").fetchone()
++    received=max(int(lr[0]) if lr else 0,clock)+1
++    if received>MAX_I64:raise CRMError('LAMPORT_EXHAUSTED',exit_code=7)
++    rank=(clock,w.actor.actor_id,w.op)
++    previous=(int(head['logical_clock']),head['actor_id'],head['operation_id']) if head else None
++    selected=previous is None or rank>previous
++    record={'logical_clock':str(clock),'actor_id':w.actor.actor_id,'operation_id':w.op}
++    if selected:
++        w.c.execute('INSERT INTO runtime_state VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value',(name,jcs(record).decode()))
++        if row[field]!=p['value']:w.edit(eid,(field,))[field]=p['value']
++    w.c.execute("INSERT INTO runtime_state VALUES('lamport.v6.receive_clock',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value",(str(received),))
++    w.add_event('lamport.candidate',{'field':field,'value':p['value'],'rank':record,
++               'previous_winner':head,'selected':selected,'receive_clock':str(received)},eid)
++    w.result={'entity_id':eid,'field':field,'selected':selected,'winner':record if selected else head,
++              'receive_clock':str(received)}
+--- turn05/crm/quota.py
++++ v1.0.0/crm/quota.py
+@@ -4,7 +4,7 @@
+ This is transport bookkeeping, not a second business commit authority.
+ """
+ from pathlib import Path
+-import sqlite3,time,os,threading
++import sqlite3,time,os,threading,random,math
+ from .db import runtime_check
+ from .storage import private_dir
+ from .errors import CRMError
+@@ -16,7 +16,7 @@
+ 
+ class Scheduler:
+     LIMITS={'sheets_read':30,'sheets_write':20,'drive_read':30,'drive_write':10,'token':30}
+-    def __init__(self,root,project,principal,clock=None,pace=15.0):
++    def __init__(self,root,project,principal,clock=None,pace=15.0,jitter=None):
+         runtime_check();self.root=private_dir(Path(root));self.project=project;self.principal=principal
+         # During one process lifetime, wall-clock adjustments cannot refill quotas.
+         # Persisted UTC-like coordinates retain a conservative full-window hold
+@@ -26,6 +26,7 @@
+             self.clock=lambda:wall_anchor+(time.monotonic()-mono_anchor)
+         else:self.clock=clock  # explicit deterministic test clock
+         self.pace=pace;self.lock=threading.RLock()
++        self.jitter=jitter or random.SystemRandom().random
+         path=self.root/'quota.db';new=not path.exists()
+         if new:
+             try:fd=os.open(path,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd)
+@@ -63,7 +64,11 @@
+             try:
+                 r=self.c.execute('SELECT failures FROM domains WHERE project=? AND principal=? AND kind=?',(self.project,self.principal,kind)).fetchone()
+                 n=(r[0] if r else 0)+1
+-                delay=300 if n>=8 else min(60,2**n)
++                sample=float(self.jitter())
++                if not math.isfinite(sample) or not 0.0<=sample<=1.0:raise CRMError('INVALID_JITTER')
++                # Full jitter is bounded above, but never bypasses provider/pacing
++                # lower bounds. Persistent failures share one five-minute probe.
++                delay=300 if n>=8 else sample*min(60,2**n)
+                 until=self.clock()+max(delay,retry_after,self.pace if kind=='sheets_write' else 0)
+                 self.c.execute('INSERT INTO domains VALUES(?,?,?,?,?,?) ON CONFLICT(project,principal,kind) DO UPDATE SET not_before=excluded.not_before,failures=excluded.failures,last_clock=excluded.last_clock',(self.project,self.principal,kind,until,n,self.clock()))
+                 self.c.commit();return until
+--- turn05/pyproject.toml
++++ v1.0.0/pyproject.toml
+@@ -1,6 +1,6 @@
+ [project]
+ name = "sovereign-crm-lab"
+-version = "0.5.0rc1"
++version = "1.0.0"
+ requires-python = ">=3.11"
+ description = "Single-authority machine-native CRM with literal Google Sheets projections"
+ dependencies = ["jsonschema==4.26.0", "cryptography==46.0.4", "idna==3.17"]
+--- turn05/tools/crm-make-command.py
++++ v1.0.0/tools/crm-make-command.py
+@@ -20,7 +20,7 @@
+     if a.independent and a.command!='entity.create':raise CRMError('INDEPENDENT_ONLY_CREATE')
+     health,code=invoke(config,'health',{})
+     if code:raise CRMError('BROKER_NOT_READY',exit_code=code)
+-    packet={'schema_version':'crm.command.v5' if a.command=='entity.tag.set' else 'crm.command.v4',
++    packet={'schema_version':('crm.command.v6' if a.command=='entity.lww.set' else 'crm.command.v5' if a.command=='entity.tag.set' else 'crm.command.v4'),
+             'operation_id':new_id(),'tenant_id':health['tenant_id'],'ledger_id':health['ledger_id'],
+             'authority_epoch':health['data']['authority_epoch'],'template_version':'1',
+             'base':None if a.independent else health['data']['base'],'command_type':a.command,'payload':payload}

@@ -1,0 +1,210 @@
+{
+  "fixture": "crm-search-v5-mixed-1000-3000-50000",
+  "counts": {
+    "entities": 1000,
+    "entity_aliases": 3000,
+    "interactions": 50000,
+    "entity_fts": 1000,
+    "interaction_fts": 50000,
+    "audit_transactions": 5000
+  },
+  "kinds": {
+    "organization": 50,
+    "person": 640,
+    "project": 50,
+    "campaign": 10,
+    "thread": 50,
+    "stage": 50,
+    "ticket": 50,
+    "dispatch": 50,
+    "opportunity": 25,
+    "contract": 25
+  },
+  "average_interaction_summary_bytes": 1024,
+  "seed_seconds": 91.57789774499997,
+  "seed_note": "Entities/aliases use public engine commands; interactions use 1000 audited internal 50-record fixture transactions. Not an ingest throughput claim.",
+  "environment": {
+    "python": "3.13.5",
+    "sqlite": "3.46.1",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "production_runtime_floor": "3.51.3",
+  "production_runtime_met": false,
+  "compatibility_fixture_only": true,
+  "runs": 2,
+  "warmup_per_run": 100,
+  "selective_queries_per_run": 2000,
+  "stress_queries_per_run": 200,
+  "concurrent_writer": false,
+  "cold_cli_measured": false,
+  "results": {
+    "exact_id_sql": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.004606,
+        "p95_ms": 0.006419,
+        "p99_ms": 0.019619,
+        "max_ms": 0.082162,
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.004546,
+        "p95_ms": 0.005007,
+        "p99_ms": 0.010095,
+        "max_ms": 0.093539,
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      }
+    ],
+    "entity_fts_selective_sql": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.036615,
+        "p95_ms": 0.069814,
+        "p99_ms": 0.104185,
+        "max_ms": 0.300858,
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.036544,
+        "p95_ms": 0.071577,
+        "p99_ms": 0.142011,
+        "max_ms": 5.273787,
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      }
+    ],
+    "interaction_fts_selective_sql": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.057145,
+        "p95_ms": 0.083714,
+        "p99_ms": 0.099528,
+        "max_ms": 0.284874,
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.046099,
+        "p95_ms": 0.074781,
+        "p99_ms": 0.129322,
+        "max_ms": 0.476389,
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      }
+    ],
+    "entity_fts_common_sql": [
+      {
+        "samples": 200,
+        "p50_ms": 1.405432,
+        "p95_ms": 1.738758,
+        "p99_ms": 2.709282,
+        "max_ms": 2.948868,
+        "p95_target_ms": 1.0,
+        "p95_under_target": false
+      },
+      {
+        "samples": 200,
+        "p50_ms": 1.400564,
+        "p95_ms": 1.584528,
+        "p99_ms": 1.84088,
+        "max_ms": 2.392019,
+        "p95_target_ms": 1.0,
+        "p95_under_target": false
+      }
+    ],
+    "interaction_fts_common_sql": [
+      {
+        "samples": 200,
+        "p50_ms": 142.753117,
+        "p95_ms": 153.558644,
+        "p99_ms": 164.971153,
+        "max_ms": 226.226454,
+        "p95_target_ms": 1.0,
+        "p95_under_target": false
+      },
+      {
+        "samples": 200,
+        "p50_ms": 143.381974,
+        "p95_ms": 170.604687,
+        "p99_ms": 203.746894,
+        "max_ms": 227.236641,
+        "p95_target_ms": 1.0,
+        "p95_under_target": false
+      }
+    ],
+    "entity_full_retrieval": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.277573,
+        "p95_ms": 0.494025,
+        "p99_ms": 0.570088,
+        "max_ms": 5.482335,
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.270613,
+        "p95_ms": 0.367046,
+        "p99_ms": 0.53094,
+        "max_ms": 1.35089,
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      }
+    ],
+    "interaction_full_retrieval": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.036033,
+        "p95_ms": 0.055973,
+        "p99_ms": 0.096523,
+        "max_ms": 0.320417,
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.036094,
+        "p95_ms": 0.056254,
+        "p99_ms": 0.10737,
+        "max_ms": 0.40956,
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      }
+    ],
+    "bounded_fuzzy_retrieval": [
+      {
+        "samples": 200,
+        "p50_ms": 28.348163,
+        "p95_ms": 30.802675,
+        "p99_ms": 32.811578,
+        "max_ms": 35.489136,
+        "p95_target_ms": 5.0,
+        "p95_under_target": false
+      },
+      {
+        "samples": 200,
+        "p50_ms": 28.204861,
+        "p95_ms": 34.421482,
+        "p99_ms": 60.153006,
+        "max_ms": 62.40914,
+        "p95_target_ms": 5.0,
+        "p95_under_target": false
+      }
+    ]
+  },
+  "quality": {
+    "fuzzy_fixture_queries": 200,
+    "fuzzy_target_in_top20": 0,
+    "fuzzy_truncated": 200
+  },
+  "overall_gate": "NOT_CERTIFIED: target runtime, concurrent writer and full 2000-query stress repetition remain. Missed classes are FAILED in this fixture."
+}

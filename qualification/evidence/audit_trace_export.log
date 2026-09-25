@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "transactions": 50000,
+  "events": 140000,
+  "compressed_bytes": 21052298,
+  "trace_sha256": "d5bdaaf4eef85aea03a9a762ed419e7a2f54d13a12cd9fc9e87ed426fa8b6142",
+  "scope": "Complete standalone audit-byte hash/chain/event-coverage verification; trusted head authenticity still depends on a separately trusted receipt."
+}

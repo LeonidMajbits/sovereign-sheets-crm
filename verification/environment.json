@@ -1,0 +1,27 @@
+{
+  "python": "3.13.5",
+  "sqlite_linked": "3.46.1",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "node": "22.16.0",
+  "requirements": {
+    "jsonschema": "4.26.0",
+    "cryptography": "46.0.4",
+    "idna": "3.17",
+    "pytest": "9.0.2",
+    "attrs": "26.1.0",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.5.1",
+    "jsonschema-specifications": "2025.9.1",
+    "cffi": "2.0.0",
+    "pycparser": "3.0",
+    "iniconfig": "2.3.0",
+    "packaging": "25.0",
+    "pluggy": "1.6.0",
+    "pygments": "2.20.0"
+  },
+  "production_sqlite_floor": "3.51.3",
+  "production_floor_met": false,
+  "tests": "disposable compatibility fixtures only; production path refuses old linked SQLite",
+  "target_darwin_tested": false,
+  "live_google_tested": false
+}

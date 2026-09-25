@@ -1,0 +1,252 @@
+{
+  "fixture": "crm-search-v5-mixed-1000-3000-50000",
+  "counts": {
+    "entities": 1000,
+    "entity_aliases": 3000,
+    "interactions": 50000,
+    "entity_fts": 1000,
+    "interaction_fts": 50000,
+    "audit_transactions": 5000
+  },
+  "kinds": {
+    "organization": 50,
+    "person": 640,
+    "project": 50,
+    "campaign": 10,
+    "thread": 50,
+    "stage": 50,
+    "ticket": 50,
+    "dispatch": 50,
+    "opportunity": 25,
+    "contract": 25
+  },
+  "average_interaction_summary_bytes": 1024,
+  "seed_seconds": 90.90249634899965,
+  "seed_note": "Entities/aliases use public engine commands; interactions use 1000 audited internal 50-record fixture transactions. Not an ingest throughput claim.",
+  "environment": {
+    "python": "3.13.5",
+    "sqlite": "3.46.1",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "production_runtime_floor": "3.51.3",
+  "production_runtime_met": false,
+  "compatibility_fixture_only": true,
+  "runs": 2,
+  "warmup_per_run": 100,
+  "selective_queries_per_run": 2000,
+  "stress_queries_per_run": 200,
+  "concurrent_writer": false,
+  "cold_cli_measured": false,
+  "results": {
+    "exact_id_sql": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.004577,
+        "p95_ms": 0.006169,
+        "p99_ms": 0.008563,
+        "max_ms": 0.093038,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.004527,
+        "p95_ms": 0.004887,
+        "p99_ms": 0.010645,
+        "max_ms": 0.06021,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      }
+    ],
+    "entity_fts_selective_sql": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.036504,
+        "p95_ms": 0.069975,
+        "p99_ms": 0.128221,
+        "max_ms": 0.502618,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.036455,
+        "p95_ms": 0.071065,
+        "p99_ms": 0.148361,
+        "max_ms": 1.092566,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      }
+    ],
+    "interaction_fts_selective_sql": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.031197,
+        "p95_ms": 0.05328,
+        "p99_ms": 0.111977,
+        "max_ms": 1.046337,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.030946,
+        "p95_ms": 0.048892,
+        "p99_ms": 0.102593,
+        "max_ms": 1.071996,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": true
+      }
+    ],
+    "entity_fts_common_sql": [
+      {
+        "samples": 200,
+        "p50_ms": 1.361707,
+        "p95_ms": 1.640802,
+        "p99_ms": 2.012635,
+        "max_ms": 2.312683,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": false
+      },
+      {
+        "samples": 200,
+        "p50_ms": 1.351902,
+        "p95_ms": 1.593773,
+        "p99_ms": 1.691839,
+        "max_ms": 1.727832,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": false
+      }
+    ],
+    "interaction_fts_common_sql": [
+      {
+        "samples": 200,
+        "p50_ms": 142.98698,
+        "p95_ms": 174.672891,
+        "p99_ms": 194.568541,
+        "max_ms": 208.227466,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": false
+      },
+      {
+        "samples": 200,
+        "p50_ms": 140.752962,
+        "p95_ms": 146.279115,
+        "p99_ms": 152.212301,
+        "max_ms": 152.950244,
+        "errors": {},
+        "p95_target_ms": 1.0,
+        "p95_under_target": false
+      }
+    ],
+    "entity_full_retrieval": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.048963,
+        "p95_ms": 0.090164,
+        "p99_ms": 0.13476,
+        "max_ms": 1.076923,
+        "errors": {},
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.048843,
+        "p95_ms": 0.092177,
+        "p99_ms": 0.149132,
+        "max_ms": 0.397732,
+        "errors": {},
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      }
+    ],
+    "interaction_full_retrieval": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.038317,
+        "p95_ms": 0.065858,
+        "p99_ms": 0.127059,
+        "max_ms": 0.502668,
+        "errors": {},
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.037666,
+        "p95_ms": 0.056203,
+        "p99_ms": 0.077185,
+        "max_ms": 0.460926,
+        "errors": {},
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      }
+    ],
+    "bounded_fuzzy_retrieval": [
+      {
+        "samples": 200,
+        "p50_ms": 18.035839,
+        "p95_ms": 20.369313,
+        "p99_ms": 24.096551,
+        "max_ms": 25.079614,
+        "errors": {
+          "QUERY_BUDGET": 1
+        },
+        "p95_target_ms": 5.0,
+        "p95_under_target": false
+      },
+      {
+        "samples": 200,
+        "p50_ms": 17.352384,
+        "p95_ms": 18.84756,
+        "p99_ms": 21.83928,
+        "max_ms": 25.056927,
+        "errors": {
+          "QUERY_BUDGET": 1
+        },
+        "p95_target_ms": 5.0,
+        "p95_under_target": false
+      }
+    ],
+    "broker_entity_read": [
+      {
+        "samples": 2000,
+        "p50_ms": 0.283171,
+        "p95_ms": 0.400946,
+        "p99_ms": 0.577469,
+        "max_ms": 1.674071,
+        "errors": {},
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      },
+      {
+        "samples": 2000,
+        "p50_ms": 0.284804,
+        "p95_ms": 0.402969,
+        "p99_ms": 0.569037,
+        "max_ms": 1.205935,
+        "errors": {},
+        "p95_target_ms": 5.0,
+        "p95_under_target": true
+      }
+    ]
+  },
+  "quality": {
+    "fuzzy_fixture_queries": 200,
+    "fuzzy_target_in_top20": 0,
+    "fuzzy_truncated": 200
+  },
+  "overall_gate": "NOT_CERTIFIED: target runtime, concurrent writer and full 2000-query stress repetition remain. Missed classes are FAILED in this fixture."
+}

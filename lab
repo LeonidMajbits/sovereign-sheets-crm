@@ -1,0 +1,7 @@
+#!/bin/sh
+# Standalone bundle shim only. NEVER overwrite the existing lab's dispatcher.
+set -eu
+if [ "${1:-}" != crm ]; then printf '%s\n' 'Use: ./lab crm <command>' >&2; exit 2; fi
+shift
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec "${CRM_PYTHON:-python3}" "$ROOT/tools/crm-lab.py" "$@"

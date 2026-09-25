@@ -1,0 +1,14 @@
+Created 1000 entities
+Created 3000 aliases
+Loaded 12500 effective interactions
+Loaded 25000 effective interactions
+Loaded 37500 effective interactions
+Loaded 50000 effective interactions
+exact_id_sql p95_ms [0.0064, 0.005]
+entity_fts_selective_sql p95_ms [0.0698, 0.0716]
+interaction_fts_selective_sql p95_ms [0.0837, 0.0748]
+entity_fts_common_sql p95_ms [1.7388, 1.5845]
+interaction_fts_common_sql p95_ms [153.5586, 170.6047]
+entity_full_retrieval p95_ms [0.494, 0.367]
+interaction_full_retrieval p95_ms [0.056, 0.0563]
+bounded_fuzzy_retrieval p95_ms [30.8027, 34.4215]

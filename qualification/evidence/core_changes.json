@@ -1,0 +1,42 @@
+[
+  {
+    "file": "crm/__init__.py",
+    "before_sha256": "f6a5b9f2aa7a2fb34d1708cc598b41c83f7fda1f1f1f4f11139ee3f390c340b1",
+    "after_sha256": "a8cbeeb16ae9bfe60a496a062e7987b791bd88fca4803f99651c4982271456fc"
+  },
+  {
+    "file": "crm/codec.py",
+    "before_sha256": "ca05a3af34adea19503f686934a14f1acac6838a39ed6c7054634231b515410e",
+    "after_sha256": "8ff8e6b617f682a3a96fd21f3b7c01a5b07568594e33c9cc0762d6e88c39be42"
+  },
+  {
+    "file": "crm/engine.py",
+    "before_sha256": "8964932f77d7a4771a08504f7e39989832fa5aaa7c514c0aeaa3e022f3436975",
+    "after_sha256": "dba1e82ec02d119f5193c85f7a8351a8d6fedde42e4c6d9928bd083b138e7174"
+  },
+  {
+    "file": "crm/entities.py",
+    "before_sha256": "013d1494e8ff2a040a834c14835c339bdf90f508721441f1d108efb2d3926db2",
+    "after_sha256": "710e622850b387785ee899292150a2f1939fe5da8570ab8e0dac2acd58508710"
+  },
+  {
+    "file": "crm/lamport.py",
+    "before_sha256": null,
+    "after_sha256": "99717e9e0c91c93efbc1c80f6a659a1ec3ae1faa7a1533fe65968e6fbe8bf8f5"
+  },
+  {
+    "file": "crm/quota.py",
+    "before_sha256": "af7f92f7278462bb78510ab976059dc2987ca841db2e2f664d320ebddd6ec765",
+    "after_sha256": "c871f560c94053b4d0ad5871f26f9826668bf07bfeb81b2d685bc6b52b23e72c"
+  },
+  {
+    "file": "pyproject.toml",
+    "before_sha256": "92eaf5465e5d9151068e006242fd133e7a495b5c4b7e5310d77ccb439bbc38cf",
+    "after_sha256": "8d6137e6b786e713be1a4efb252bea1eaf014f87839aa30219ea9ecfe9c085ca"
+  },
+  {
+    "file": "tools/crm-make-command.py",
+    "before_sha256": "20c298ee78da8a4b514214d2c4fd8a81974beab5996c2b7052ab6d9e10c3500e",
+    "after_sha256": "bf17f0d2ff3c6b19a121018b95f3a5b92403ca18cf9d72fe9d2727b43caeead9"
+  }
+]

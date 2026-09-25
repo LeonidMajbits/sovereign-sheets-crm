@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "lamport_runs": 4,
+  "claim_rounds": 10,
+  "process_crashes": 5
+}

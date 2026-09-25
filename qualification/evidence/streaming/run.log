@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "compatibility_only": true,
+  "workers": 100,
+  "operations": 2000,
+  "current_records": 400,
+  "max_overlapping_ingest_calls": 70,
+  "publications_before_all_admitted": [
+    {
+      "batch_number": 1,
+      "admitted_at_observation": 1024
+    },
+    {
+      "batch_number": 2,
+      "admitted_at_observation": 1463
+    },
+    {
+      "batch_number": 3,
+      "admitted_at_observation": 1772
+    },
+    {
+      "batch_number": 4,
+      "admitted_at_observation": 1944
+    },
+    {
+      "batch_number": 5,
+      "admitted_at_observation": 1993
+    }
+  ],
+  "batches": 50,
+  "attempts": 52,
+  "wall_seconds": 65.64055608600006,
+  "ingest_latency": {
+    "p50_ms": 198.164763,
+    "p95_ms": 822.91982,
+    "p99_ms": 1112.658908,
+    "max_ms": 2873.902889,
+    "samples": 2000
+  },
+  "cloud_transactions_exact": 2000,
+  "cloud_events_exact": 5600,
+  "audit": {
+    "transactions": "2000",
+    "head_digest": "0cfc5df529dd07eeeaddaa4d852534bd86b66ecaac17195da503aa84ef5d6bad",
+    "verified": true
+  },
+  "pending_after_drain": 0,
+  "google": "SIMULATED"
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 0,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 1,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 2,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 3,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 4,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 5,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 6,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 7,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 8,
+    "transactions": 5000
+  },
+  {
+    "all_exact": true,
+    "business_rows": 1000,
+    "events": 14000,
+    "tenant": 9,
+    "transactions": 5000
+  }
+]

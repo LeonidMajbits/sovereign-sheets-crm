@@ -1,0 +1,12 @@
+[project]
+name = "sovereign-crm-lab"
+version = "1.0.2"
+requires-python = ">=3.11"
+description = "Single-authority machine-native CRM with literal Google Sheets projections"
+license = "MIT"
+authors = [{name = "Leonid Majbits", email = "77941374+LeonidMajbits@users.noreply.github.com"}]
+dependencies = ["jsonschema==4.26.0", "cryptography==46.0.4", "idna==3.17"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

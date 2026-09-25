@@ -1,0 +1,20 @@
+{
+  "release_status": "IMPLEMENTATION_CANDIDATE",
+  "original_case_count": 109,
+  "original_matrix_preserved": true,
+  "target_production_cases_certified": 0,
+  "local_suite": "pytest-results.xml",
+  "script_suite": "apps_script_node_results.json",
+  "evidence_policy": "Local fixtures demonstrate named behavior; they do not certify target runtime/cloud/full original oracles.",
+  "gates": {
+    "STORAGE": "COMPATIBILITY_TESTED; REQUIRED_BUILD_DARWIN_POWERLOSS_NOT_RUN",
+    "COMMAND": "LOCAL_TARGETED_TESTS_PASS; EXHAUSTIVE_PRODUCTION_MATRIX_NOT_CERTIFIED",
+    "SEARCH": "SEE_MEASUREMENTS; BLANKET_LATENCY_NOT_RELEASED",
+    "PUBLISH": "MOCK_INTERFACE_AND_LOAD_TESTED; LIVE_GOOGLE_NOT_RUN",
+    "CLOUD_RIGHTS": "NOT_ESTABLISHED",
+    "INGESTION": "LOCAL_TYPED_SECURITY_TESTS_PASS; LIVE_SCAN_NOT_RUN",
+    "RESTORE": "LOCAL_SIGNED_RESTORE_TESTED; AUTOMATIC_PROMOTION_NOT_IMPLEMENTED",
+    "OPTIONAL_INGRESS": "NODE_AND_CROSS_LANGUAGE_TESTS_PASS; DEPLOYMENT_NOT_RUN",
+    "SCAR018": "CODE_HAS_NO_BROWSER_WORKFLOW; TARGET_PROVISIONING_OPEN"
+  }
+}

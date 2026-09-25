@@ -1,0 +1,50 @@
+{
+  "compressed_bytes": 21052298,
+  "events": 140000,
+  "scope": "Complete standalone audit-byte hash/chain/event-coverage verification; trusted head authenticity still depends on a separately trusted receipt.",
+  "status": "PASS",
+  "tenant_chains": {
+    "01HF7YAT000000000000000034": [
+      5000,
+      "dd34604337be063cbe6dcca5e6587e52926d541b5ef03d4f3cebaa5966c07f1e"
+    ],
+    "01HF7YAT000000000000000035": [
+      5000,
+      "bb21ff704aa1c7a06bd41878cf175a3b749572bda98dd49cab3915ee5c0bcc9a"
+    ],
+    "01HF7YAT000000000000000036": [
+      5000,
+      "b85e5f787da9dc1f33d28a6e1a6789405cdf9328ec66d4db811f6c28b0702674"
+    ],
+    "01HF7YAT000000000000000037": [
+      5000,
+      "fbf1bc80c69fb609b61946e1f4e49819bf8ba8769245cfc01d0229f5e90e8fa7"
+    ],
+    "01HF7YAT000000000000000038": [
+      5000,
+      "c7fd1f6a773caba6d717210c63037fbaa42bc4ed343d9d8184b7d31d77e4d4c7"
+    ],
+    "01HF7YAT000000000000000039": [
+      5000,
+      "8ecd4671c8882876c7e56194d00ed2f5ebc83d0a57424af068da733a42e15dc1"
+    ],
+    "01HF7YAT00000000000000003A": [
+      5000,
+      "d3497c6d09b06471f22be3e6c6584a1611a8a859713c509be07050f735382b6b"
+    ],
+    "01HF7YAT00000000000000003B": [
+      5000,
+      "c20ddb1bab4a3315d2587e6136e815fb5d54252a443f0a2b9d793cb507b38310"
+    ],
+    "01HF7YAT00000000000000003C": [
+      5000,
+      "007e26460e6155efe65d8539cf50388d8da750b798189f330bca815e0b37bb67"
+    ],
+    "01HF7YAT00000000000000003D": [
+      5000,
+      "3415693643502cf2d8a7b90839ea9c1d9725f2eddb9cb5a5666cbd322d69360f"
+    ]
+  },
+  "trace_sha256": "d5bdaaf4eef85aea03a9a762ed419e7a2f54d13a12cd9fc9e87ed426fa8b6142",
+  "transactions": 50000
+}

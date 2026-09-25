@@ -1,0 +1,87 @@
+{
+  "scope": "Read-only per-tenant snapshots; business state is quiescent. Exact current FTS text/revisions and SQLite integrity, not performance.",
+  "status": "PASS",
+  "tenants": [
+    {
+      "canonical_note_digest": "ca7408cd5662d5fd4a2fcee831804ca7a5e4a1a41b62c782854f2556f2979dfa",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT000000000000000034"
+    },
+    {
+      "canonical_note_digest": "b22d84366051d9420efbe9ed6d7d236008db50fd8d0590e1599ed940af9fbbd6",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT000000000000000035"
+    },
+    {
+      "canonical_note_digest": "412ff189b3e4b6d308eef07c0de42f8210477570c4def2da40d8d034ea5b93ab",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT000000000000000036"
+    },
+    {
+      "canonical_note_digest": "d9de88c4bf75462aac2e826ede73562037546a4484c3e3cd13fee20dbe445525",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT000000000000000037"
+    },
+    {
+      "canonical_note_digest": "cb6a7a86bc59c0a9d5aba81a461f192861e498cc6b5294b1b2b14ce11dd4f60a",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT000000000000000038"
+    },
+    {
+      "canonical_note_digest": "a76ca638dfe5d1d3610ef0a50825656c7b764ee3e7684919c2b8c30d0c426131",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT000000000000000039"
+    },
+    {
+      "canonical_note_digest": "aefdf7e38b409733b8e2f81f0a83534681ab381cc6c9bd87a535ae4b4ac662a1",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT00000000000000003A"
+    },
+    {
+      "canonical_note_digest": "83ded6a886915b528123186e9381d08f97921ec45edafe4bcff7464f9c87c516",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT00000000000000003B"
+    },
+    {
+      "canonical_note_digest": "e9312a77e6231da7250204a349e48bd249f6be9537bd339be154995bdf470466",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT00000000000000003C"
+    },
+    {
+      "canonical_note_digest": "72a62d335b15c0d197d2b9bed2bd64a2e89954725e806a5e8212868400b62986",
+      "entities": 1000,
+      "exact_current_fts_documents": 1000,
+      "foreign_key_violations": 0,
+      "integrity_check": "ok",
+      "tenant": "01HF7YAT00000000000000003D"
+    }
+  ],
+  "total_exact_current_fts_documents": 10000
+}

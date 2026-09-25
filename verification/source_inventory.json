@@ -1,0 +1,180 @@
+{
+  "python_syntax_files_checked": 32,
+  "files": [
+    {
+      "path": "crm/__init__.py",
+      "bytes": 107,
+      "sha256": "f6a5b9f2aa7a2fb34d1708cc598b41c83f7fda1f1f1f4f11139ee3f390c340b1"
+    },
+    {
+      "path": "crm/campaigns.py",
+      "bytes": 4631,
+      "sha256": "ced2d9bda97edbc1905c5d78db4aaa8674b990500c6dec6838da3f8dea438c0b"
+    },
+    {
+      "path": "crm/cli.py",
+      "bytes": 5757,
+      "sha256": "b3f37df5cc93338e844cdcc7599c5314298452a1d7a14f7559a448b815938f28"
+    },
+    {
+      "path": "crm/codec.py",
+      "bytes": 6183,
+      "sha256": "ca05a3af34adea19503f686934a14f1acac6838a39ed6c7054634231b515410e"
+    },
+    {
+      "path": "crm/db.py",
+      "bytes": 7111,
+      "sha256": "b7e7720208bdcf5bc05abcced026e522748aadaf75e76e31df62d529b557547a"
+    },
+    {
+      "path": "crm/engine.py",
+      "bytes": 22390,
+      "sha256": "8964932f77d7a4771a08504f7e39989832fa5aaa7c514c0aeaa3e022f3436975"
+    },
+    {
+      "path": "crm/entities.py",
+      "bytes": 24832,
+      "sha256": "013d1494e8ff2a040a834c14835c339bdf90f508721441f1d108efb2d3926db2"
+    },
+    {
+      "path": "crm/errors.py",
+      "bytes": 643,
+      "sha256": "7bcb4b336e322602597d3b5dddc15d9882ef3ba2960cc351010fd471b8db18b2"
+    },
+    {
+      "path": "crm/google_api.py",
+      "bytes": 8977,
+      "sha256": "6a7ea940678e42485d1a5905d32b220005952e5f3ec962347e92a7f54472e4a7"
+    },
+    {
+      "path": "crm/ids.py",
+      "bytes": 1014,
+      "sha256": "8c04242f7de1bd5be9eda1394aba10b366c918a6d5b34c70220fb27f88e9c86f"
+    },
+    {
+      "path": "crm/ingress.py",
+      "bytes": 8968,
+      "sha256": "512fd3608976a30412acf5f8133aaa1ae5bbbcc35445edeb70c62074be88e51d"
+    },
+    {
+      "path": "crm/model.py",
+      "bytes": 3034,
+      "sha256": "2f892b0e61ac2361577314027ea693fd5d17db273947fc07f3e2d446016d39b2"
+    },
+    {
+      "path": "crm/projection.py",
+      "bytes": 6857,
+      "sha256": "4f7ab24cd9edf22fb0341215f035c3b41c4bd48cf6258d55249e3296816a2031"
+    },
+    {
+      "path": "crm/provision.py",
+      "bytes": 6286,
+      "sha256": "9f4c8310a2e0b18c81cb6107ca875790368d588596c4f32e9e286999604388c9"
+    },
+    {
+      "path": "crm/quarantine.py",
+      "bytes": 6266,
+      "sha256": "1b15502f9d2227e0c5a53b9d71b65fe7ba1e4b5ada58e1754aaeb5464802cb30"
+    },
+    {
+      "path": "crm/quota.py",
+      "bytes": 5120,
+      "sha256": "af7f92f7278462bb78510ab976059dc2987ca841db2e2f664d320ebddd6ec765"
+    },
+    {
+      "path": "crm/search.py",
+      "bytes": 14751,
+      "sha256": "8479a1d865361a09b23346c68073e0f4aa08932f5bc5bcaec79283153aac772c"
+    },
+    {
+      "path": "crm/service.py",
+      "bytes": 16844,
+      "sha256": "2632b3129b84c3abe7da7dcaa1acb67f15ce394f18b84f035e565558dcdf98ad"
+    },
+    {
+      "path": "crm/snapshot.py",
+      "bytes": 6850,
+      "sha256": "14279103433263ce998a537e69e3c8d64786ab427619ac8033b1ead957e89596"
+    },
+    {
+      "path": "crm/storage.py",
+      "bytes": 3013,
+      "sha256": "f2fcf868c9f3b0f4f4368e40260867b409a4ed9e9e19343d12ec32a71137ea23"
+    },
+    {
+      "path": "crm/sync.py",
+      "bytes": 25228,
+      "sha256": "5bfc59e0519aadb90a2dabbd50a8356781358e4d5353f36f6f0ad75d19ff9dfb"
+    },
+    {
+      "path": "integration/embed.py",
+      "bytes": 878,
+      "sha256": "04559c58d013560e29e9e661e0c9b0bb353c0ca19e033ca3653235048291bf32"
+    },
+    {
+      "path": "tests/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/conftest.py",
+      "bytes": 1502,
+      "sha256": "5cb4f8b4da9e97f8ad7454cd6d0696a24574344473a79e0eda5b6275748a3004"
+    },
+    {
+      "path": "tests/fakes.py",
+      "bytes": 2623,
+      "sha256": "d11f2f329bf8705cb7771bdcbcc44fa036b54d68885912e1b37734448aeb8827"
+    },
+    {
+      "path": "tests/test_crm_core.py",
+      "bytes": 24017,
+      "sha256": "efe72f74263b2ca93b12ba45dc60a724fb15f7f380d4f2729fd82b31cfbc2b25"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "bytes": 19868,
+      "sha256": "fa9e0824828d1068fdb448f46e6ea96555a2d89477f412b770f322087537c8d3"
+    },
+    {
+      "path": "tools/benchmark_search.py",
+      "bytes": 11343,
+      "sha256": "71709901138b5aa6ff5f2f4046178ed5cf4c6d303307f9b049bd1c14c3a06e35"
+    },
+    {
+      "path": "tools/crm-admin.py",
+      "bytes": 3873,
+      "sha256": "2c1b1d542cd81ed9ab1401c76a50f2c2340a51c292164b2c5c6328ec227c7034"
+    },
+    {
+      "path": "tools/crm-host.py",
+      "bytes": 2790,
+      "sha256": "7919e55256d8f8e69b3a2564d9bd674c3aa4928b6d21e50808bd6a7a6b610dad"
+    },
+    {
+      "path": "tools/crm-lab.py",
+      "bytes": 276,
+      "sha256": "17566a82aa7e1b9bfb338d91cfe9219ea06c9f82fd92ff3795b363bcd4a29787"
+    },
+    {
+      "path": "tools/crm-make-command.py",
+      "bytes": 2228,
+      "sha256": "20c298ee78da8a4b514214d2c4fd8a81974beab5996c2b7052ab6d9e10c3500e"
+    },
+    {
+      "path": "apps_script/Code.gs",
+      "bytes": 42652,
+      "sha256": "2e2d74a3d61492677f19bde40ba083a8625172d40308031ed7e42090e3f77ac5"
+    },
+    {
+      "path": "apps_script/README.md",
+      "bytes": 5602,
+      "sha256": "2adae43d5fa9031db105c75c4d2c7a8c8cf81f039c0fb0b54c38f6387dc97715"
+    },
+    {
+      "path": "apps_script/appsscript.json",
+      "bytes": 276,
+      "sha256": "ae49e74fbab27d798f9c3b26e1458578ed50698f5126b2d1a25a4fcc983333e3"
+    }
+  ]
+}

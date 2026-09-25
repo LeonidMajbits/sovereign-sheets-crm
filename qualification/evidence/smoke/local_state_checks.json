@@ -1,0 +1,46 @@
+[
+  {
+    "chain": {
+      "head_digest": "9fd8050480b350be54eb9187db0366da76e2045f8e3184c67a23354d0dc7c896",
+      "transactions": "250",
+      "verified": true
+    },
+    "counts": {
+      "audit_transactions": 250,
+      "campaigns": 5,
+      "entities": 50,
+      "entity_search_documents": 50,
+      "entity_versions": 250,
+      "operation_outcomes": 250,
+      "sync_outbox": 250
+    },
+    "storage": {
+      "foreign_keys": 1,
+      "journal_mode": "wal",
+      "synchronous": 2
+    },
+    "tenant_index": 0
+  },
+  {
+    "chain": {
+      "head_digest": "67704f7d9db75032c1078a08adf70ecbe03f8bce10bd2c33bc01050cf9e0dc81",
+      "transactions": "250",
+      "verified": true
+    },
+    "counts": {
+      "audit_transactions": 250,
+      "campaigns": 5,
+      "entities": 50,
+      "entity_search_documents": 50,
+      "entity_versions": 250,
+      "operation_outcomes": 250,
+      "sync_outbox": 250
+    },
+    "storage": {
+      "foreign_keys": 1,
+      "journal_mode": "wal",
+      "synchronous": 2
+    },
+    "tenant_index": 1
+  }
+]
