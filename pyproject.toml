@@ -10,3 +10,6 @@ dependencies = ["jsonschema==4.26.0", "cryptography==46.0.4", "idna==3.17"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"
+
+[tool.setuptools.packages.find]
+include = ["crm*"]
