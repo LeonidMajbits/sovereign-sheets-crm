@@ -14,9 +14,12 @@ from crm.quota import Scheduler
 from crm.sync import Publisher
 from tests.fakes import Clock,MemorySheets
 
-@pytest.fixture
-def core(tmp_path,monkeypatch):
+@pytest.fixture(autouse=True)
+def allow_test_sqlite(monkeypatch):
     monkeypatch.setattr(dbmod,'MIN_SQLITE',min(dbmod.MIN_SQLITE,dbmod.sqlite3.sqlite_version_info))
+
+@pytest.fixture
+def core(tmp_path):
     ids=[new_id() for _ in range(3)];root=tmp_path/'runtime';root.mkdir(mode=0o700)
     db=Database.initialize(root,*ids)
     engine=Engine(db);actor=ActorContext(ids[2],ALL_CAPS|{'audit.read'})
